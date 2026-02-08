@@ -24,4 +24,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BIBLICAL_WORD_SCRAMBLE }}'
           projectId: biblical-word-scramble
-          channelId: live
+          channelId: '${{ github.ref == ''refs/heads/main'' && ''live'' || '''' }}'
