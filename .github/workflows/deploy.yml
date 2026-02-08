@@ -20,8 +20,16 @@ jobs:
       - run: flutter build web --release
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: github.ref == 'refs/heads/main'
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BIBLICAL_WORD_SCRAMBLE }}'
           projectId: biblical-word-scramble
-          channelId: '${{ github.ref == ''refs/heads/main'' && ''live'' || '''' }}'
+          channelId: live
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: github.event_name == 'pull_request'
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BIBLICAL_WORD_SCRAMBLE }}'
+          projectId: biblical-word-scramble
