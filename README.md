@@ -1,4 +1,5 @@
-# biblical_word_scramble
+# Biblical Word Scramble
+![Build Status](https://github.com/prakashpz/biblical-word-scramble/actions/workflows/deploy.yml/badge.svg)
 
 A new Flutter project.
 
